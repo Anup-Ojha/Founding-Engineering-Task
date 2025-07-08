@@ -1,0 +1,234 @@
+/* src/app/app.component.css */
+
+body {
+  font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-control {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in width */
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button.btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+button.btn:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.loading-message, .no-results-message, .error-message {
+  text-align: center;
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1em;
+}
+
+.loading-message {
+  background-color: #e9f7ff;
+  color: #007bff;
+  border: 1px solid #b3e0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 123, 255, 0.1);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background-color: #ffe9e9;
+  color: #d9534f;
+  border: 1px solid #f5c6cb;
+}
+
+.results-section {
+  margin-top: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures rounded corners apply to table */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  text-align: left;
+}
+
+.results-table th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.results-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+.results-table a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.results-table a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.no-results-message {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #e9ecef;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .results-table, .results-table thead, .results-table tbody, .results-table th, .results-table td, .results-table tr {
+    display: block;
+  }
+
+  .results-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .results-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .results-table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  .results-table td:before {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+  }
+
+  .results-table td:nth-of-type(1):before { content: "Product Name:"; }
+  .results-table td:nth-of-type(2):before { content: "Price:"; }
+  .results-table td:nth-of-type(3):before { content: "Currency:"; }
+  .results-table td:nth-of-type(4):before { content: "Website:"; }
+  .results-table td:nth-of-type(5):before { content: "Link:"; }
+}
