@@ -57,7 +57,8 @@ export class AppComponent implements OnDestroy {
 
     try {
       const response = await firstValueFrom(
-        this.http.post<ProductResult[]>('https://backendtaskfethosted.onrender.com/api/search', payload)
+        //https://backendtaskfethosted.onrender.com/api/search
+        this.http.post<ProductResult[]>('http://localhost:3000', payload)
       );
       this.results = response;
     } catch (err: any) {
